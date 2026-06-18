@@ -46,4 +46,5 @@ The primary goal of Blue Gord is to create a dedicated platform for defensive cy
 ## Author
 
 Muhammad Ajmal Khan
-Cybersecurity Enthusiast | SOC Analyst Aspirant | Web Developer
+
+Cybersecurity Enthusiast | SOC Analyst Aspirant | Passionate About Cybersecurity
