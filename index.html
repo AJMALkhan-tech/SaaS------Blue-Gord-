@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blue Gord — Blue Team Training Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- This is for mobile menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="#" onclick="showSection('home'); closeMobile()">Home</a>
+  <a href="#" onclick="showSection('services'); closeMobile()">Services</a>
+  <a href="#" onclick="showSection('features'); closeMobile()">Features</a>
+  <a href="#" onclick="showSection('testimonials'); closeMobile()">Reviews</a>
+  <a href="#" onclick="showSection('pricing'); closeMobile()">Pricing</a>
+  <a href="#" onclick="showSection('contact'); closeMobile()">Contact</a>
+</div>
+
+<!-- This is for navigation -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" onclick="showSection('home')">Blue<span>Gord</span></a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#" onclick="showSection('services')">Services</a></li>
+      <li><a href="#" onclick="showSection('features')">Features</a></li>
+      <li><a href="#" onclick="showSection('testimonials')">Reviews</a></li>
+      <li><a href="#" onclick="showSection('pricing')">Pricing</a></li>
+      <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="#" class="btn btn-outline" onclick="showSection('pricing')">View Plans</a>
+      <a href="#" class="btn btn-primary" onclick="openModal('Starter', '$0', false, event)">Get Started</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- This is for section pages -->
+
+<!-- this is HOME page -->
+<div class="page-section active" id="section-home">
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Blue Team Training Platform for SOC Analysts
+        </div>
+        <h1 class="hero-title">
+          Master <em>Blue Team Operations</em> Through Real-World Cyber Defense Labs
+        </h1>
+        <p class="hero-desc">
+          Blue Gord helps aspiring SOC analysts, incident responders, and security professionals develop practical defensive security skills through hands-on labs, attack investigations, threat detection exercises, and blue team challenges.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary btn-lg" onclick="showSection('pricing')">Start for free</a>
+          <a href="#" class="btn btn-ghost btn-lg" onclick="showSection('features')">See how it works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">3,000+</div>
+            <div class="stat-label">Active learners</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Blue Team Labs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">150+</div>
+            <div class="stat-label">Security Challenges</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- this portion is for decoration right side of home page -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-terminal">
+          <div class="ht-topbar">
+            <span class="ht-dot red"></span>
+            <span class="ht-dot yellow"></span>
+            <span class="ht-dot green"></span>
+            <span class="ht-title">soc-analyst@bluegord:~</span>
+          </div>
+          <div class="ht-body">
+            <div class="ht-line"><span class="ht-prompt">$</span> whoami</div>
+            <div class="ht-out">soc-analyst</div>
+            <div class="ht-line"><span class="ht-prompt">$</span> cat threat_report.txt</div>
+            <div class="ht-out ht-out-block">
+              <span class="ht-key">Alerts analyzed:</span> <span class="ht-val">247</span><br>
+              <span class="ht-key">True positives:</span>  <span class="ht-val ht-red">18</span><br>
+              <span class="ht-key">MTTR:</span>            <span class="ht-val ht-yellow">4.2h</span><br>
+              <span class="ht-key">Status:</span>          <span class="ht-val ht-green">HUNTING</span>
+            </div>
+            <div class="ht-line"><span class="ht-prompt">$</span> ./run_detection.sh</div>
+            <div class="ht-progress-wrap">
+              <div class="ht-progress-bar">
+                <div class="ht-progress-fill"></div>
+              </div>
+              <span class="ht-progress-label">Threat Hunting 68%</span>
+            </div>
+            <div class="ht-progress-wrap">
+              <div class="ht-progress-bar">
+                <div class="ht-progress-fill" style="width:47%;"></div>
+              </div>
+              <span class="ht-progress-label">SIEM Monitoring 47%</span>
+            </div>
+            <div class="ht-progress-wrap">
+              <div class="ht-progress-bar">
+                <div class="ht-progress-fill" style="width:82%;background:#00e5ff;"></div>
+              </div>
+              <span class="ht-progress-label">Incident Response 82%</span>
+            </div>
+            <div class="ht-line"><span class="ht-blink">█</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- these are card used to get in -->
+    <div class="container quick-nav">
+      <div class="qn-card" onclick="showSection('services')">
+        <div class="qn-icon">🛡️</div>
+        <div class="qn-label">Services</div>
+        <div class="qn-arrow">→</div>
+      </div>
+      <div class="qn-card" onclick="showSection('features')">
+        <div class="qn-icon">⚡</div>
+        <div class="qn-label">Features</div>
+        <div class="qn-arrow">→</div>
+      </div>
+      <div class="qn-card" onclick="showSection('testimonials')">
+        <div class="qn-icon">★</div>
+        <div class="qn-label">Reviews</div>
+        <div class="qn-arrow">→</div>
+      </div>
+      <div class="qn-card" onclick="showSection('pricing')">
+        <div class="qn-icon">💳</div>
+        <div class="qn-label">Pricing</div>
+        <div class="qn-arrow">→</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- this is for services section -->
+<div class="page-section" id="section-services">
+  <section class="services">
+    <div class="container">
+      <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+      <div class="services-header">
+        <p class="section-label">// what_we_offer</p>
+        <h2 class="section-title">Everything You Need To<br>Become A Better Defender</h2>
+        <p class="section-sub">Practical cybersecurity training built specifically for blue team professionals.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon-wrap"><div class="service-icon">🖥️</div></div>
+          <h3>SOC Monitoring Labs</h3>
+          <p>Learn how security analysts monitor alerts, investigate suspicious activity, and respond to incidents inside realistic SOC environments.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap"><div class="service-icon">🔍</div></div>
+          <h3>Threat Hunting Exercises</h3>
+          <p>Search for indicators of compromise, identify attacker activity, and build investigation workflows using real-world scenarios.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap"><div class="service-icon">📊</div></div>
+          <h3>SIEM Training</h3>
+          <p>Practice writing queries, creating detections, and analyzing logs using industry-standard monitoring concepts.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap"><div class="service-icon">🚨</div></div>
+          <h3>Incident Response Training</h3>
+          <p>Learn containment, eradication, recovery and post-incident analysis through realistic attack scenarios.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap"><div class="service-icon">🔬</div></div>
+          <h3>Digital Forensics</h3>
+          <p>Analyze system artifacts, memory dumps, logs, and evidence to uncover what happened during an attack.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap"><div class="service-icon">📜</div></div>
+          <h3>Blue Team Certifications</h3>
+          <p>Follow structured learning paths and earn certificates that demonstrate practical defensive security skills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- this is for feature section -->
+<div class="page-section" id="section-features">
+  <section class="features">
+    <div class="container">
+      <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+      <div class="features-grid">
+        <div>
+          <p class="section-label">// under_the_hood</p>
+          <h2 class="section-title">Built For Defenders Who Want Real Experience</h2>
+          <div class="features-list">
+            <div class="feature-item active" onclick="setFeature(this)">
+              <div class="feature-dot">⚡</div>
+              <div class="feature-text">
+                <h4>Detection Engineering</h4>
+                <p>Create SIEM detections, correlation rules, and alerting logic to identify attacker behavior.</p>
+              </div>
+            </div>
+            <div class="feature-item" onclick="setFeature(this)">
+              <div class="feature-dot">🧠</div>
+              <div class="feature-text">
+                <h4>Threat Intelligence</h4>
+                <p>Work with IOCs, threat feeds, and adversary reports to improve investigations.</p>
+              </div>
+            </div>
+            <div class="feature-item" onclick="setFeature(this)">
+              <div class="feature-dot">🔔</div>
+              <div class="feature-text">
+                <h4>Live Attack Simulations</h4>
+                <p>Investigate realistic attack scenarios and respond using professional blue team methodologies.</p>
+              </div>
+            </div>
+            <div class="feature-item" onclick="setFeature(this)">
+              <div class="feature-dot">📋</div>
+              <div class="feature-text">
+                <h4>Progress Tracking</h4>
+                <p>Monitor completed labs, earned certificates, and blue team skill development.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="features-visual" aria-hidden="true">
+          <div class="feat-terminal">
+            <div class="feat-topbar">
+              <span class="feat-dot red"></span>
+              <span class="feat-dot yellow"></span>
+              <span class="feat-dot green"></span>
+              <span class="feat-title-bar">analyst@bluegord:~/workspace</span>
+            </div>
+            <div class="feat-grid">
+              <div class="feat-widget">
+                <div class="feat-widget-label">// completed_labs</div>
+                <div class="feat-widget-val">142</div>
+                <div class="feat-widget-change">↑ 12% this week</div>
+              </div>
+              <div class="feat-widget">
+                <div class="feat-widget-label">// detection_score</div>
+                <div class="feat-widget-val">82%</div>
+                <div class="feat-widget-change">● Stable</div>
+              </div>
+              <div class="feat-widget">
+                <div class="feat-widget-label">// active_investigations</div>
+                <div class="feat-widget-val">7</div>
+                <div class="feat-widget-change">✔ 3 resolved today</div>
+              </div>
+              <div class="feat-widget">
+                <div class="feat-widget-label">// hunting_rank</div>
+                <div class="feat-widget-val">84pts</div>
+                <div class="feat-widget-change">↑ Best sprint yet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- this is for testimonals  -->
+<div class="page-section" id="section-testimonials">
+  <section class="testimonials">
+    <div class="container">
+      <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+      <div class="testimonials-header">
+        <p class="section-label">// real_teams.real_results</p>
+        <h2 class="section-title">Trusted By Students, Analysts, And Security Teams</h2>
+        <p class="section-sub">Thousands of learners use Blue Gord to sharpen their defensive security skills.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">Before Blue Gord I only understood cybersecurity theory. The hands-on labs helped me understand how real SOC analysts investigate alerts and incidents.</p>
+          <div class="review-stars">★★★★★</div>
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:linear-gradient(135deg,#0a2a4a,#0d47a1);">SB</div>
+            <div>
+              <div class="reviewer-name">Syed Moiz Bukhari</div>
+              <div class="reviewer-role">Senior SOC Analyst · SecureBank</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">The pricing felt too good to be real, so I stress-tested it for a month before committing. The platform delivered. Our deployment frequency tripled without a single incident.</p>
+          <div class="review-stars">★★★★★</div>
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:linear-gradient(135deg,#0d47a1,#1565c0);">MH</div>
+            <div>
+              <div class="reviewer-name">Muhammad Hassan</div>
+              <div class="reviewer-role">Threat Hunter · Cyber Defence Center</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">My almost 1,250 day streak says it all. Best cybersecurity training platform out there — period.</p>
+          <div class="review-stars">★★★★☆</div>
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:linear-gradient(135deg,#00838f,#006064);">WH</div>
+            <div>
+              <div class="reviewer-name">Wajeeh Ul Hassan</div>
+              <div class="reviewer-role">Incident Response Engineer · Cyber Defence Center</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">Following this platform closely. The hands-on approach to blue team training is exactly what the industry has been missing.</p>
+          <div class="review-stars">★★★★★</div>
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:linear-gradient(135deg,#0277bd,#01579b);">IN</div>
+            <div>
+              <div class="reviewer-name">Ifrah Nawaz</div>
+              <div class="reviewer-role">Threat Hunter · Cyber Defence Center</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">Support actually understood what I was asking on the first message. I've been spoiled — now every other vendor's boilerplate replies annoy me.</p>
+          <div class="review-stars">★★★★★</div>
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:linear-gradient(135deg,#00acc1,#0097a7);">AJ</div>
+            <div>
+              <div class="reviewer-name">Aleena Jamil</div>
+              <div class="reviewer-role">Incident Response Engineer · Cyber Defence Center</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">Six months in and the analytics dashboard is still my first tab every morning. Haven't said that about a SaaS product since Figma launched multiplayer.</p>
+          <div class="review-stars">★★★★★</div>
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:linear-gradient(135deg,#1565c0,#0d47a1);">SR</div>
+            <div>
+              <div class="reviewer-name">Syeda Rida Faatemah Rizvi</div>
+              <div class="reviewer-role">Senior SOC Analyst · SecureBank</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- this is for pricing section -->
+<div class="page-section" id="section-pricing">
+  <section class="pricing">
+    <div class="container">
+      <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+      <div class="pricing-header">
+        <p class="section-label">// simple_honest_pricing</p>
+        <h2 class="section-title">Pick the plan that fits where you are today</h2>
+        <p class="section-sub">No hidden seats, no surprise overages. Upgrade, downgrade, or cancel anytime.</p>
+      </div>
+
+      <div class="pricing-toggle-wrap">
+        <span class="toggle-label active" id="monthlyLabel">Monthly</span>
+        <button class="pricing-toggle" id="billingToggle" aria-label="Toggle billing period" onclick="toggleBilling()"></button>
+        <span class="toggle-label" id="annualLabel">Annual</span>
+        <span class="save-badge" id="saveBadge" style="opacity:0.4;">Save 20%</span>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="plan-name">Starter</div>
+          <div class="plan-tagline">For solo builders and side projects getting off the ground.</div>
+          <div class="plan-price">
+            <span class="price-currency">$</span>
+            <span class="price-amount" data-monthly="0" data-annual="0" id="price-starter">0</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span><div><span>20 Beginner Labs</span></div></li>
+            <li><span class="check">✓</span><div><span>Basic SOC Scenarios</span></div></li>
+            <li><span class="check">✓</span><div><span>Community Access</span></div></li>
+            <li><span class="check">✓</span><div><span>Progress Tracking</span></div></li>
+            <li><span class="cross">✕</span><div><span class="feat-off">AI Automation</span></div></li>
+            <li><span class="cross">✕</span><div><span class="feat-off">Priority Support</span></div></li>
+          </ul>
+          <button class="btn btn-outline btn-plan" onclick="openModal('Starter', '$0', false, event)">Get started free</button>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="popular-tag">Most popular</div>
+          <div class="plan-name">Growth</div>
+          <div class="plan-tagline">For small teams that ship fast and want data to back every decision.</div>
+          <div class="plan-price">
+            <span class="price-currency">$</span>
+            <span class="price-amount" data-monthly="49" data-annual="39" id="price-growth">49</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span><div><span>200+ Blue Team Labs</span></div></li>
+            <li><span class="check">✓</span><div><span>Threat Hunting Challenges</span></div></li>
+            <li><span class="check">✓</span><div><span>SIEM Detection Training</span></div></li>
+            <li><span class="check">✓</span><div><span>Practice Certifications</span></div></li>
+            <li><span class="check">✓</span><div><span>Priority Email Support</span></div></li>
+            <li><span class="cross">✕</span><div><span class="feat-off">Custom SSO / SAML</span></div></li>
+          </ul>
+          <button class="btn btn-primary btn-plan" onclick="openModal('Growth', '$49', false, event)">Start 14-day trial</button>
+        </div>
+
+        <div class="pricing-card">
+          <div class="plan-name">Scale</div>
+          <div class="plan-tagline">For growing companies that need enterprise-grade control and compliance.</div>
+          <div class="plan-price">
+            <span class="price-currency">$</span>
+            <span class="price-amount" data-monthly="149" data-annual="119" id="price-scale">149</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span><div><span>Everything in Growth</span></div></li>
+            <li><span class="check">✓</span><div><span>500+ Advanced Labs</span></div></li>
+            <li><span class="check">✓</span><div><span>Exclusive Certifications</span></div></li>
+            <li><span class="check">✓</span><div><span>Private Community Access</span></div></li>
+            <li><span class="check">✓</span><div><span>Career Guidance Sessions</span></div></li>
+            <li><span class="check">✓</span><div><span>Custom Data Region</span></div></li>
+          </ul>
+          <button class="btn btn-outline btn-plan" onclick="openModal('Scale', '$149', false, event)">Start 14-day trial</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- this is for CONTACT -->
+<div class="page-section" id="section-contact">
+  <section class="contact-section">
+    <div class="container">
+      <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+      <div class="contact-grid">
+        <div>
+          <p class="section-label">// get_in_touch</p>
+          <h2 class="section-title">We're Here To Help You Defend Better</h2>
+          <p class="section-sub">Have questions about labs, certifications, or enterprise plans? Reach out and our team will respond within 24 hours.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="ci-icon">📧</span>
+              <div>
+                <div class="ci-label">Email</div>
+                <div class="ci-val">Bluegord13@gmail.com</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon">💬</span>
+              <div>
+                <div class="ci-label">Discord Community</div>
+                <div class="ci-val">BlueGord_Discord.gg</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon">🌍</span>
+              <div>
+                <div class="ci-label">Location</div>
+                <div class="ci-val">Remote Global Team</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <div class="terminal-window contact-terminal">
+            <div class="terminal-topbar">
+              <span class="t-dot t-red"></span>
+              <span class="t-dot t-yellow"></span>
+              <span class="t-dot t-green"></span>
+              <span class="t-bar-title">contact@bluegord:~</span>
+            </div>
+            <div class="contact-form">
+              <div class="cf-field">
+                <label class="cf-label"><span class="cf-prompt">$</span> name</label>
+                <input class="cf-input" type="text" placeholder="Your full name" id="cfName" />
+              </div>
+              <div class="cf-field">
+                <label class="cf-label"><span class="cf-prompt">$</span> email</label>
+                <input class="cf-input" type="email" placeholder="your@email.com" id="cfEmail" />
+              </div>
+              <div class="cf-field">
+                <label class="cf-label"><span class="cf-prompt">$</span> message</label>
+                <textarea class="cf-input cf-textarea" placeholder="Type your message..." id="cfMessage"></textarea>
+              </div>
+              <button class="btn btn-primary btn-plan" onclick="sendContact()">./send_message.sh</button>
+              <div class="cf-success" id="cfSuccess" style="display:none;">
+                <span class="t-green-txt">✔ Message sent successfully. We'll be in touch!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- this portion is for FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo">Blue<span>Gord</span></span>
+        <p class="footer-desc">Blue Gord provides hands-on blue team training, SOC analyst practice labs, threat hunting exercises, and cybersecurity certification paths.</p>
+        <div class="footer-terminal-line">
+          <span class="ft-prompt">$</span> uptime: <span class="ft-green">99.9%</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>// product</h4>
+        <ul>
+          <li><a href="#" onclick="showSection('features')">Features</a></li>
+          <li><a href="#" onclick="showSection('pricing')">Pricing</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Roadmap</a></li>
+          <li><a href="#">API Docs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>// company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>// legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Cookie Settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Blue Gord. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">Status</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#" onclick="showSection('contact')">Community</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- this is for MODAL -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true"
+     aria-labelledby="modalTitleText" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modalBox">
+    <div id="modalFormState">
+      <div class="modal-head">
+        <div>
+          <div class="modal-plan-tag" id="modalPlanTag">Selected plan</div>
+          <div class="modal-title" id="modalTitleText">Subscribe to Growth</div>
+        </div>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-summary">
+          <div class="modal-summary-row">
+            <span id="summaryPlan">Growth plan (monthly)</span>
+            <span id="summaryPrice">$49/mo</span>
+          </div>
+          <div class="modal-summary-row">
+            <span>14-day free trial</span>
+            <span style="color:var(--accent-cyan);font-weight:600;">Included</span>
+          </div>
+          <div class="modal-summary-row total">
+            <span>Due today</span>
+            <span id="summaryDue">$0.00</span>
+          </div>
+        </div>
+        <label class="modal-label" for="cardName">Full name</label>
+        <input class="modal-input" type="text" id="cardName" placeholder="Alex Johnson" autocomplete="name" />
+        <label class="modal-label" for="cardEmail">Work email</label>
+        <input class="modal-input" type="email" id="cardEmail" placeholder="alex@company.com" autocomplete="email" />
+        <label class="modal-label" for="cardNumber">Card number</label>
+        <div class="modal-card-row">
+          <input class="modal-input" type="text" id="cardNumber" placeholder="4242 4242 4242 4242" maxlength="19" oninput="formatCard(this)" />
+          <input class="modal-input" type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)" />
+          <input class="modal-input" type="text" id="cardCvc" placeholder="CVC" maxlength="4" />
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+          <button class="btn btn-primary" id="subscribeBtn" onclick="handleSubscribe()">
+            <span id="subscribeBtnText">Confirm subscription</span>
+          </button>
+        </div>
+        <p class="modal-secure">🔒 256-bit SSL encryption · Cancel anytime from your account</p>
+      </div>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">🛡️</div>
+      <div class="success-title" id="successTitle">You're in.</div>
+      <p class="success-sub" id="successSub">Welcome to Blue Gord — your trial starts now.</p>
+      <button class="btn btn-primary" onclick="closeModal()" style="margin-top:1.5rem;">Go to dashboard →</button>
+    </div>
+  </div>
+</div>
+
+<!-- this is for JAVASCRIPT -->
+<script>
+  /* ── this is for Section routing ── */
+  function showSection(id) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    const target = document.getElementById('section-' + id);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  /* ── this is for Nav scroll shadow ── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  /* ── this is for Mobile menu ── */
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'true');
+  });
+  document.getElementById('mobileClose').addEventListener('click', closeMobile);
+  function closeMobile() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+  }
+
+  /* ── this is for Feature items ── */
+  function setFeature(el) {
+    document.querySelectorAll('.feature-item').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  /* ── this is for Billing toggle ── */
+  let isAnnual = false;
+  function toggleBilling() {
+    isAnnual = !isAnnual;
+    document.getElementById('billingToggle').classList.toggle('on', isAnnual);
+    document.getElementById('monthlyLabel').classList.toggle('active', !isAnnual);
+    document.getElementById('annualLabel').classList.toggle('active', isAnnual);
+    document.getElementById('saveBadge').style.opacity = isAnnual ? '1' : '0.4';
+    ['starter','growth','scale'].forEach(id => {
+      const el = document.getElementById('price-' + id);
+      if (el) el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
+    });
+  }
+
+  /* ── this is for Modal ── */
+  let currentPlan = '';
+  function openModal(plan, price, annual, event) {
+    if (event) event.preventDefault();
+    currentPlan = plan;
+    const isFree = plan === 'Starter';
+    const prices = { Starter: '$0', Growth: isAnnual ? '$39' : '$49', Scale: isAnnual ? '$119' : '$149' };
+    const finalPrice = prices[plan] || price;
+    document.getElementById('modalPlanTag').textContent = plan + ' plan';
+    document.getElementById('modalTitleText').textContent = isFree ? 'Create your free account' : 'Subscribe to ' + plan;
+    document.getElementById('summaryPlan').textContent = plan + ' plan (' + (isAnnual ? 'annual' : 'monthly') + ')';
+    document.getElementById('summaryPrice').textContent = isFree ? 'Free forever' : finalPrice + '/mo';
+    document.getElementById('summaryDue').textContent = isFree ? '$0.00' : '$0.00 (trial)';
+    document.getElementById('subscribeBtnText').textContent = isFree ? 'Create account' : 'Start free trial';
+    document.getElementById('modalFormState').style.display = 'block';
+    document.getElementById('modalSuccess').style.display = 'none';
+    ['cardName','cardEmail','cardNumber','cardExpiry','cardCvc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  function handleSubscribe() {
+    const name = document.getElementById('cardName').value.trim();
+    const email = document.getElementById('cardEmail').value.trim();
+    const card = document.getElementById('cardNumber').value.replace(/\s/g,'');
+    const expiry = document.getElementById('cardExpiry').value.trim();
+    const cvc = document.getElementById('cardCvc').value.trim();
+    if (!name) { flash('cardName','Please enter your name'); return; }
+    if (!email || !email.includes('@')) { flash('cardEmail','Please enter a valid email'); return; }
+    const isFree = currentPlan === 'Starter';
+    if (!isFree) {
+      if (card.length < 15) { flash('cardNumber','Card number looks short'); return; }
+      if (expiry.length < 5) { flash('cardExpiry','Enter expiry as MM/YY'); return; }
+      if (cvc.length < 3) { flash('cardCvc','Enter your CVC'); return; }
+    }
+    const btn = document.getElementById('subscribeBtn');
+    btn.disabled = true;
+    document.getElementById('subscribeBtnText').textContent = '⏳ Processing…';
+    setTimeout(() => { btn.disabled = false; showSuccess(); }, 1800);
+  }
+
+  function flash(fieldId, msg) {
+    const el = document.getElementById(fieldId);
+    el.style.borderColor = '#ef5350';
+    el.focus();
+    setTimeout(() => { el.style.borderColor = ''; }, 2200);
+  }
+
+  function showSuccess() {
+    const messages = {
+      Starter: ['Account created!', 'Welcome to Blue Gord. Your free workspace is ready.'],
+      Growth: ["You're in.", 'Your 14-day trial starts now. Check your inbox for setup steps.'],
+      Scale: ['Welcome aboard.', 'Your Scale workspace is live. Your success manager will reach out shortly.']
+    };
+    const [title, sub] = messages[currentPlan] || messages.Growth;
+    document.getElementById('successTitle').textContent = title;
+    document.getElementById('successSub').textContent = sub;
+    document.getElementById('modalFormState').style.display = 'none';
+    document.getElementById('modalSuccess').style.display = 'block';
+  }
+
+  function formatCard(el) {
+    let v = el.value.replace(/\D/g,'').substring(0,16);
+    el.value = v.replace(/(.{4})/g,'$1 ').trim();
+  }
+  function formatExpiry(el) {
+    let v = el.value.replace(/\D/g,'').substring(0,4);
+    if (v.length >= 3) v = v.substring(0,2)+'/'+v.substring(2);
+    el.value = v;
+  }
+
+  /* ── this is for Contact form ── */
+  function sendContact() {
+    const name = document.getElementById('cfName').value.trim();
+    const email = document.getElementById('cfEmail').value.trim();
+    const msg = document.getElementById('cfMessage').value.trim();
+    if (!name || !email || !msg) return;
+    document.getElementById('cfSuccess').style.display = 'block';
+    document.getElementById('cfName').value = '';
+    document.getElementById('cfEmail').value = '';
+    document.getElementById('cfMessage').value = '';
+  }
+</script>
+</body>
+</html>
